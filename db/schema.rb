@@ -11,23 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140626075429) do
+ActiveRecord::Schema.define(version: 20140628191241) do
 
   create_table "attempts", force: true do |t|
     t.text     "caption"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "how_to_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "comments", force: true do |t|
     t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "how_to_id"
+    t.integer  "user_id"
   end
 
   create_table "how_tos", force: true do |t|
     t.string   "title"
     t.integer  "likes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  create_table "likes", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "how_to_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -36,6 +51,11 @@ ActiveRecord::Schema.define(version: 20140626075429) do
     t.text     "caption"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "how_to_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "users", force: true do |t|

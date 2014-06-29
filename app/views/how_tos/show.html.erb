@@ -1,0 +1,78 @@
+
+<h2>How To <%= @howto.title %></h2>
+
+<div class="HowTo">
+<% @steps.each_index do |index| %>
+
+	Step <%= index + 1 %> <br>
+	<% step = @steps[index] %>
+
+	<p class="image"><%= image_tag step.photo.url(:medium) %></p>
+	<p class="caption"><%= step.caption %></p>
+
+	<br>
+	<% if index != @steps.size - 1 %>
+		<%= image_tag "../../assets/arrow_down.jpg" %>
+	<% end %>
+	<br>
+
+<% end %>
+</div>
+
+
+<div class="likes">
+	Likes : <%= @likes %>
+	<br>
+	<% if @liked %>
+		<%= link_to "unlike", "/unlike/#{@howto.id}", :method => "delete" %>
+	<% else %>
+		<%= link_to "like", "/like/#{@howto.id}", :method => "put" %>
+	<% end %>
+
+</div>
+
+<br><br>
+<%= link_to "Go back to your profile", "/profile" %>
+
+
+<br><br><br><br><br><br>
+<!-- load attemps -->
+<div class="attempts">
+	<% if @attempts.empty? %>
+		Noone has attempted this yet! Be the first one! 
+	<% else %>
+		<% @attempts.each do |attempt| %>
+			<%= image_tag attempt.photo.url(:medium) %> <br>
+			<%= attempt.caption %>
+		<% end %>
+	<% end %>
+
+	<br>
+	<%= link_to "Click here to post your attempt at this!", '/attempt/new' %>
+</div>
+
+
+
+
+<br><br><br><br><br><br>
+<!-- Load comments -->
+
+<div class="comments">
+	<% @comments.each do |comment| %>
+		<p class="info">By: <%= comment.user.first_name %> <%= comment.user.last_name %> At: <%= comment.created_at %> <br></p>
+		<p clsas="text"><%= comment.text %></p>
+		<br>
+	<% end %>
+	
+
+	<p>Add a comment:</p>
+	<%= form_for @new_comment, :url => '/comment/create', :method => 'put' do |f| %>
+		<%= f.text_area :text %>
+		<%= f.hidden_field :user_id, value: current_user.id, :input_html => {:maxlength => 500}  %>
+		<%= f.hidden_field :how_to_id, value: @howto.id %>
+		<br>
+		<%= f.submit "Comment!" %>
+	<% end %>
+</div>
+
+

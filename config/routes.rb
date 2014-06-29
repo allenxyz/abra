@@ -1,9 +1,27 @@
 Rails.application.routes.draw do
   devise_for :users
 
-
   root "how_tos#index"
 
+
+  get '/profile' => "users#profile"
+
+  get '/how_to/new' => "how_tos#new"
+  put '/how_to/create' => "how_tos#create"
+  delete '/how_to/delete/:how_to_id' => "how_tos#delete"
+  get '/show/:how_to_id' => "how_tos#show"
+  get '/random' => 'how_tos#random'
+
+  put '/like/:how_to_id' => 'likes#like'
+  delete '/unlike/:how_to_id' => 'likes#unlike'
+
+  get '/steps/new' => "steps#new"
+  put '/steps/create' => "steps#create"
+
+  put '/comment/create' => 'comments#create'
+
+  get '/attempt/new' => 'attempt#new'
+  put '/attempt/create/' => 'attempt#create'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

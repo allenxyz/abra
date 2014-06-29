@@ -5,10 +5,21 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= render 'header' %>
 </head>
 <body>
 
+
+
 <%= yield %>
+<b>
+	<% if flash[:success] %>
+		<%= flash[:success] %>
+	<% elsif flash[:error] %>
+		<%= flash[:error] %>
+	<% end %>
+</b>
+
 
 </body>
 </html>

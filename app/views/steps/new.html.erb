@@ -1,0 +1,16 @@
+
+<br> <br>
+Add a step:
+<%= form_for @step, :url => '/steps/create', :method => 'put', :html => { :multipart => true } do |f| %>
+
+	Attach a photo: 
+	<%= f.file_field :photo, :required => true %> <br>
+	instructions:
+	<%= f.text_area :caption %><br><br>
+
+	<%= f.hidden_field :how_to_id, value: @how_to.id %>
+
+	<%= f.submit "Add another step!" %>
+	<%= f.submit "Finished!" %>
+
+<% end %>

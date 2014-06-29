@@ -1,0 +1,17 @@
+
+<div>
+	<p>What do you wanna HOW?</p>
+
+	<%= form_for(@HowTo, :url => '/how_to/create', :method => "put") do |f| %>
+		
+		How to 
+		<%= f.text_field :title %>
+		<br>
+		<%= f.hidden_field :user_id, value: @user.id %>
+
+		
+		<br>
+		<%= f.submit "Start HOWing!" %>
+	<% end %>
+
+</div>
