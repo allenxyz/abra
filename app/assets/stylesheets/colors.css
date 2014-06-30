@@ -1,0 +1,132 @@
+/* ======================================================================== */
+/* ! Colors
+/* ======================================================================== */
+
+.aqua {
+	color: #52BAD5;
+}
+
+.green {
+	color: #4ABD9B;
+}
+
+.bg-white {
+	background: #FFF;
+}
+
+/* ======================================================================== */
+/* ! Aqua
+/* ======================================================================== */
+.page-aqua .nav-list > .active > a, 
+.page-aqua .nav-list > .active > a:hover, 
+.page-aqua .nav-list > .active > a:focus,
+.page-aqua .dropdown-menu > li > a:hover, 
+.page-aqua .dropdown-menu > li > a:focus, 
+.page-aqua .dropdown-submenu:hover > a, 
+.page-aqua .dropdown-submenu:focus > a,
+.page-aqua .nav-pills > .active > a, 
+.page-aqua .nav-pills > .active > a:hover, 
+.page-aqua .nav-pills > .active > a:focus,
+.page-aqua .nav-tabs.nav-stacked > li > a:hover, 
+.page-aqua .nav-tabs.nav-stacked > li > a:focus,
+.page-aqua .navbar .nav > .active > a, 
+.page-aqua .navbar .nav > .active > a:hover, 
+.page-aqua .navbar .nav > .active > a:focus,
+.page-aqua .navbar .nav > li > a:focus, 
+.page-aqua .navbar .nav > li > a:hover,
+.page-aqua .pricing-table.focus,
+.page-aqua .bg-colored,
+.page-aqua .member-photo a .hover,
+.page-aqua .service-wrapper .full-rounded,
+.page-aqua .progress .bar,
+.page-aqua .btn-quivee,
+.page-aqua .btn-quivee:focus, 
+.page-aqua .btn-quivee:active,
+.page-aqua .btn-quivee.active, 
+.page-aqua .btn-quivee.disabled, 
+.page-aqua .btn-quivee[disabled],
+.page-aqua #portfolio-filter .active a,
+.page-aqua #portfolio-filter .active a:hover,
+.page-aqua .pricing-action a.bg-quivee,
+.page-aqua .accordion-toggle:hover,
+.page-aqua .service-wrapper:hover,
+.page-aqua .dropdown-menu li > a:hover,
+.page-aqua .dropdown-menu li > a:focus,
+.page-aqua .dropdown-submenu:hover > a,
+.page-aqua .post a:hover .hover {
+	background: #52bad5 url(overlay.png) repeat 0 0;
+	color: #fff;
+	text-shadow: none;
+	border: none;
+}
+.page-aqua a,
+.page-aqua .emphasis,
+.page-aqua .member-wrapper a:hover i,
+.page-aqua .btn-link {
+	color: #6cd2ec;
+}
+.page-aqua .service-wrapper .full-rounded {
+	border: 5px solid #52bad5;
+}
+.page-aqua .btn-quivee:hover {
+	background: #6cd2ec none;
+}
+
+/* ======================================================================== */
+/* ! Green
+/* ======================================================================== */
+.page-green .nav-list > .active > a, 
+.page-green .nav-list > .active > a:hover, 
+.page-green .nav-list > .active > a:focus,
+.page-green .dropdown-menu > li > a:hover, 
+.page-green .dropdown-menu > li > a:focus, 
+.page-green .dropdown-submenu:hover > a, 
+.page-green .dropdown-submenu:focus > a,
+.page-green .nav-pills > .active > a, 
+.page-green .nav-pills > .active > a:hover, 
+.page-green .nav-pills > .active > a:focus,
+.page-green .nav-tabs.nav-stacked > li > a:hover, 
+.page-green .nav-tabs.nav-stacked > li > a:focus,
+.page-green .navbar .nav > .active > a, 
+.page-green .navbar .nav > .active > a:hover, 
+.page-green .navbar .nav > .active > a:focus,
+.page-green .navbar .nav > li > a:focus, 
+.page-green .navbar .nav > li > a:hover,
+.page-green .pricing-table.focus,
+.page-green .bg-colored,
+.page-green .member-photo a .hover,
+.page-green .service-wrapper .full-rounded,
+.page-green .progress .bar,
+.page-green .btn-quivee,
+.page-green .btn-quivee:focus, 
+.page-green .btn-quivee:active,
+.page-green .btn-quivee.active, 
+.page-green .btn-quivee.disabled, 
+.page-green .btn-quivee[disabled],
+.page-green #portfolio-filter .active a,
+.page-green #portfolio-filter .active a:hover,
+.page-green .pricing-action a.bg-quivee,
+.page-green .accordion-toggle:hover,
+.page-green .service-wrapper:hover,
+.page-green .dropdown-menu li > a:hover,
+.page-green .dropdown-menu li > a:focus,
+.page-green .dropdown-submenu:hover > a,
+.page-green .post a:hover .hover {
+	background: #4ABD9B;
+	/* background: #4ABD9B url(overlay.png) repeat 0 0; */
+	color: #fff;
+	text-shadow: none;
+	border: none;
+}
+.page-green a,
+.page-green .emphasis,
+.page-green .member-wrapper a:hover i,
+.page-green .btn-link {
+	color: #4ABD9B;
+}
+.page-green .service-wrapper .full-rounded {
+	border: 5px solid #4ABD9B;
+}
+.page-green .btn-quivee:hover {
+	background: #333333 none;
+}
