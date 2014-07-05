@@ -1,24 +1,32 @@
-
+<div class="html_body">
 <h2>How To <%= @howto.title %></h2>
 
 <div class="HowTo">
-<% @steps.each_index do |index| %>
+	<% @steps.each_index do |index| %>
 
-	Step <%= index + 1 %> <br>
-	<% step = @steps[index] %>
+		Step <%= index + 1 %> <br>
+		<% step = @steps[index] %>
 
-	<p class="image"><%= image_tag step.photo.url(:medium) %></p>
-	<p class="caption"><%= step.caption %></p>
+		<p class="image"><%= image_tag step.photo.url(:medium) %></p>
+		<p class="caption"><%= step.caption %></p>
 
-	<br>
-	<% if index != @steps.size - 1 %>
-		<%= image_tag "../../assets/arrow_down.jpg" %>
+		<br>
+		<% if index != @steps.size - 1 %>
+			<%= image_tag "../../assets/arrow_down.jpg" %>
+		<% end %>
+		<br>
 	<% end %>
-	<br>
 
-<% end %>
+	<div class="created_by">
+		<p> 
+			<!-- add prof pic here -->
+			<%= @howto.user.first_name %> <%= @howto.user.last_name %>
+		</p>
+	</div>
 </div>
 
+
+<br><br>
 
 <div class="likes">
 	Likes : <%= @likes %>
@@ -32,11 +40,13 @@
 </div>
 
 <br><br>
+
 <%= link_to "Go back to your profile", "/profile" %>
 
 
 <br><br><br><br><br><br>
 <!-- load attemps -->
+<h4> Attempts at this!</h4>
 <div class="attempts">
 	<% if @attempts.empty? %>
 		Noone has attempted this yet! Be the first one! 
@@ -48,7 +58,7 @@
 	<% end %>
 
 	<br>
-	<%= link_to "Click here to post your attempt at this!", '/attempt/new' %>
+	<%= link_to "Show us your attempt at this!", {:controller => "attempts", :action => "new", :how_to_id => @howto.id } %>
 </div>
 
 
@@ -57,6 +67,7 @@
 <br><br><br><br><br><br>
 <!-- Load comments -->
 
+<h3>Comments</h3>
 <div class="comments">
 	<% @comments.each do |comment| %>
 		<p class="info">By: <%= comment.user.first_name %> <%= comment.user.last_name %> At: <%= comment.created_at %> <br></p>
@@ -64,15 +75,20 @@
 		<br>
 	<% end %>
 	
-
-	<p>Add a comment:</p>
-	<%= form_for @new_comment, :url => '/comment/create', :method => 'put' do |f| %>
-		<%= f.text_area :text %>
-		<%= f.hidden_field :user_id, value: current_user.id, :input_html => {:maxlength => 500}  %>
-		<%= f.hidden_field :how_to_id, value: @howto.id %>
-		<br>
-		<%= f.submit "Comment!" %>
+	<!-- only if your logged in though! -->
+	<% if user_signed_in? %>
+		<p>Add a comment:</p>
+		<%= form_for @new_comment, :url => '/comment/create', :method => 'put' do |f| %>
+			<%= f.text_area :text %>
+			<%= f.hidden_field :user_id, value: current_user.id, :input_html => {:maxlength => 500}  %>
+			<%= f.hidden_field :how_to_id, value: @howto.id %>
+			<br>
+			<%= f.submit "Comment!" %>
+		<% end %>
+	<% else %>
+		<%= link_to "Sign in to comment!", user_session_path %>
 	<% end %>
 </div>
 
 
+</div>

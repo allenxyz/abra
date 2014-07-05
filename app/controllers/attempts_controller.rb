@@ -1,12 +1,17 @@
 class AttemptsController < ApplicationController
 	def new
+		puts params
 		@new_attempt = Attempt.new
 	end
 
 
 
 	def create
-		Attempt.create(attempt_params)
+		puts "asdfasdfasdf"
+		a = Attempt.create(attempt_params)
+		puts attempt_params
+		puts params
+		redirect_to "/show/#{params[:attempt][:how_to_id]}"
 	end
 
 

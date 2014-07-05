@@ -1,4 +1,4 @@
-/*!
+f/*!
  * Bootstrap v2.3.2
  *
  * Copyright 2012 Twitter, Inc
@@ -2043,7 +2043,7 @@ legend + .control-group {
   cursor: pointer;
   color: #fff;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-  background-color: #8e929e;
+  /* background-color: #8e929e; */
   background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
   background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);

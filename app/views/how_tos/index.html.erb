@@ -1,25 +1,5 @@
+<div class="html_body">
+<h1>How To iExperience <span class="smaller">(unofficially)</span></h1>
 
-
-
-<h1>Welcome to HowiX</h1>
-
-
-<div>
-<% if user_signed_in? %>
-	You are signed in as: <%= @user.first_name %> <%= @user.last_name %>
-	<br>
-	Not you?
-	<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-	<br>
-	<%= link_to "View your profile", '/profile' %>
-<% else %>
-	<%= link_to "Sign in to create a How", user_session_path %>
-<% end %>
-
-
+<%= link_to "Find a random HOW", '/random', class: "btn btn-large random" %> 
 </div>
-
-
-
-
-<%= link_to "Find a random HOW", '/random' %>

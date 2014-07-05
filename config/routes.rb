@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
 
   get '/profile' => "users#profile"
+  get '/admin_panel' => 'users#edit'
+  post '/admin_panel/modify' => 'user#modify'
 
   get '/how_to/new' => "how_tos#new"
   put '/how_to/create' => "how_tos#create"
@@ -20,8 +22,8 @@ Rails.application.routes.draw do
 
   put '/comment/create' => 'comments#create'
 
-  get '/attempt/new' => 'attempt#new'
-  put '/attempt/create/' => 'attempt#create'
+  get '/attempt/new' => 'attempts#new'
+  put '/attempt/create/' => 'attempts#create'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

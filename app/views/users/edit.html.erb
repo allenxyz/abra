@@ -1,0 +1,33 @@
+
+
+
+<h1>Listing all users</h1>
+
+<div class="users_list">
+
+	<% @users.each do |user| %>
+		<tr>
+			<td> <%= user.first_name %> <%= user.last_name %></td>
+			<td> <%= user.last_sign_in_at %></td>
+			<td>
+				<% if user.admin %>
+					Admin
+				<% else %>
+					User
+				<% end %>
+
+			</td>
+
+
+
+		</tr>
+
+
+
+
+	<% end %>
+
+
+
+
+</div>

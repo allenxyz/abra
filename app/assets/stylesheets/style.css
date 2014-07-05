@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700);
 /* Css */
 /* ======================================================================== */
 /* ! Buttons
@@ -16,7 +17,7 @@
 .btn:hover,
 .btn:active {
 	text-decoration: none;
-	color: #fff;	
+	color: #FFF;	
 	-webkit-transition: 0.25s;
 	   -moz-transition: 0.25s;
 		-ms-transition: 0.25s;
@@ -32,6 +33,10 @@
 }
 .btn-large {
 	padding: 15px 50px;
+}
+.btn-medium {
+	padding: 8px 30px;
+	font-family: "Lato", sans-serif;
 }
 .btn-transparent,
 .btn-transparent:focus, 
@@ -269,6 +274,9 @@ p {
 }
 .navbar .nav > li > a:focus, 
 .navbar .nav > li > a:hover {
+	border-radius: 0px;
+	color: white;
+	background-color: #6cd2ec;
 	text-shadow: none;
 }
 .navbar-fixed-top .navbar-inner, 
@@ -846,95 +854,80 @@ input[type="color"],
 	margin-bottom: 30px;
 }
 
-/* ======================== */
-/* MEET THE TEAM CUSTOM */
-/* ======================== */
 
-.centre-team {
-	display: inline-block;
-	margin: 0 auto;
+
+
+
+/* custom stuff */
+
+
+
+.left {
+	float: left;
+
 }
 
-.acceptance h2 {
-	font-size: 40px;
-	margin-bottom: 40px;
+
+.right {
+	float: right; 
 }
 
-.megawrapper {
-	max-width: 970px;
-	margin: 0 auto;
+
+.center {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-/* ======================================================================== */
-/* !Ambassador page
-/* ======================================================================== */
 
-h4.ambassador {
-	font-weight: 700;
-	margin-bottom: 8px;
+h1 {
+	text-align: center;
+	font-weight: bold;
+	font-family: "Roboto Slab", sans-serif;
+	font-size: 5em;
 }
 
-.underline hr {
-	margin: 30px auto;
-	max-width: 900px;
-	height:1px; 
-	border:none; 
-	color:#FFF; 
-	background-color:#FFF;
+.random {
+	float:right;
+	padding: 20px;
+	background-color: white;
+	border-color: black;
+	color: black;
+	margin-right: 20px;
+	font-family: "Roboto Slab", sans-serif;
 }
 
-.student-testimonial {
-	width: 260px;
-	height: auto;
-	border: 5px solid #c9c9c9;
-	margin-bottom: 15px;
+.btn:hover {
+	background-color: lightblue;
 }
 
-.testimonial-wrapper {
-	height: auto;
-	background: #fff;
-	padding: 30px;
-	margin: 30px 0 0;
-	position: relative;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-ms-box-sizing: border-box;
-	box-sizing: border-box;
+
+
+.html_body {
+	width: 1170px;
+	margin-right: auto;
+	margin-left: auto;
+
+}
+span.smaller {
+	font-size: 0.5em;
 }
 
-/* ======================================================================== */
-/* !iX House page
-/* ======================================================================== */
-.bg_map { background: url('house/bg_map.jpg') no-repeat 50% 0; }
-.bg_entrance{ background: url('house/bg_entrance.jpg') no-repeat 50% 0; }
-.bg_cafe { background: url('house/bg_cafe.jpg') no-repeat 50% 0; }
-.bg_create { background: url('house/bg_create.jpg') no-repeat 50% 0; }
-.bg_explore { background: url('house/bg_explore.jpg') no-repeat 50% 0; }
-.bg_class { background: url('house/bg_class.jpg') no-repeat 50% 0; }
-.bg_seminar2 { background: url('house/bg_seminar2.jpg') no-repeat 50% 0; }
-.bg_lounge { background: url('house/bg_lounge.jpg') no-repeat 50% 0; }
-.bg_breakaway { background: url('house/bg_breakaway.jpg') no-repeat 50% 0; }
-
-.bg_map, .bg_entrance, .bg_cafe, .bg_create, .bg_explore, .bg_class, .bg_seminar2, .bg_breakaway, .bg_lounge{
-	height: 720px;
-	padding: 0;
-	background-attachment: fixed;
-	background-size: cover;
-	z-index: -2;
+.details > ul > li{
+	list-style: none;
+	float: none;
 }
 
-video{
-	z-index: 1
+
+.hows {
+	float:none;
 }
 
-.grid_block{
-	height: 550px;
-	padding: 30px;
-	margin: 20px;
-	position: relative;
-	-webkit-box-sizing: border-box;
-	   -moz-box-sizing: border-box;
-	    -ms-box-sizing: border-box;
-			box-sizing: border-box;
-	
+h1, h2, h3, h4, h5, h6 {
+	font-weight: bold;
+}
+
+.details {
+	width: 100%;
+		
 }

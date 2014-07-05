@@ -1,10 +1,19 @@
-<%= form_for @new_attempt, :url => '/attempt/create', :html => { :multipart => true } do |f| %>
+
+
+
+<%= form_for @new_attempt, :url => '/attempt/create', :method => 'put', :html => { :multipart => true } do |f| %>
+
 	Show us a picture of you doing this! <br>
-	<%= f.file_field :avatar, :required => true %> <br>
+	<%= f.file_field :photo, :required => true %> <br>
 
 	Write a little something about this! <br>
 	<%= f.text_field :caption %> <br>
-
-
+	
+	<%= f.hidden_field :how_to_id, value: params[:how_to_id] %>
 	<%= f.submit "POST!" %>
+
 <% end %>
+
+
+
+<%= link_to "Go back!", "/show/#{params[:how_to_id]}" %>
