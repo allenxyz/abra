@@ -23,7 +23,9 @@ Rails.application.routes.draw do
   put '/comment/create' => 'comments#create'
 
   get '/attempt/new' => 'attempts#new'
-  put '/attempt/create/' => 'attempts#create'
+  put '/attempt/create' => 'attempts#create'
+
+  post '/user/edit' => 'user#edit'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

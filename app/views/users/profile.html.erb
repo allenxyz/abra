@@ -3,32 +3,35 @@
 <h1> Welcome <%= @user.first_name %> </h1>
 
 <div class="details">
-	<h4> Your info: </h4>
-	<ul>
-		<li> <strong>Your name:</strong> <%= @user.first_name %> <%= @user.last_name %>
-			<% if @user.admin %>
-				<span class="smaller">ADMINISTRATOR</span>
-			<% end %>
-
-		</li>
-
-		<li> <strong>Email:</strong> <%= @user.email %></li>
-
-		<br>
-
-		<li> <strong>Been with us for: </strong>
-			<% days = ((Time.now - @user.created_at.to_time)/1.day).round(0) %>
-			<% if days > 365 %>
-				<%= (days/365).round(0) %> years
-			<% else %>
-				<%= days %> days
-			<% end %>
-		</li>
-
-		<li> <strong>Last signed in at:</strong> <%= @user.last_sign_in_at.to_formatted_s(:rcs822) %></li>
-
-	</ul>
-	<%= link_to "Edit your info", "#", class: "btn btn-medium" %>
+	<%= image_tag @user.profile_picture.url(:thumb), class: "profile_pic" %>
+	<div class="info">
+		<h4> Your info: </h4>
+		<ul>
+			<li> <strong>Your name:</strong> <%= @user.first_name %> <%= @user.last_name %>
+				<% if @user.admin %>
+					<span class="smaller">ADMINISTRATOR</span>
+				<% end %>
+	
+			</li>
+	
+			<li> <strong>Email:</strong> <%= @user.email %></li>
+	
+			<br>
+	
+			<li> <strong>Been with us for: </strong>
+				<% days = ((Time.now - @user.created_at.to_time)/1.day).round(0) %>
+				<% if days > 365 %>
+					<%= (days/365).round(0) %> years
+				<% else %>
+					<%= days %> days
+				<% end %>
+			</li>
+	
+			<li> <strong>Last signed in at:</strong> <%= @user.last_sign_in_at.to_formatted_s(:rcs822) %></li>
+	
+		</ul>
+		<%= link_to "Edit your info", "#", class: "btn btn-medium" %>
+	</div>
 </div>
 
 
