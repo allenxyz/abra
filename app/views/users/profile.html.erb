@@ -30,8 +30,8 @@
 			<li> <strong>Last signed in at:</strong> <%= @user.last_sign_in_at.to_formatted_s(:rcs822) %></li>
 	
 		</ul>
-		<%= link_to "Edit your info", "#", class: "btn btn-medium" %>
 	</div>
+<%= link_to "Edit your info", "/user/edit", class: "btn btn-medium edit_profile" %>
 </div>
 
 

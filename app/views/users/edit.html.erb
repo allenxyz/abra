@@ -1,33 +1,15 @@
 
 
 
-<h1>Listing all users</h1>
+<%= form_for(@user, url: '/user/update', method: 'post') do |f| %>
+	<%= f.label :first_name %>
+	<%= f.text_field :first_name %>
 
-<div class="users_list">
+	<%= f.label :last_name %>
+	<%= f.text_field :last_name %>
 
-	<% @users.each do |user| %>
-		<tr>
-			<td> <%= user.first_name %> <%= user.last_name %></td>
-			<td> <%= user.last_sign_in_at %></td>
-			<td>
-				<% if user.admin %>
-					Admin
-				<% else %>
-					User
-				<% end %>
-
-			</td>
-
-
-
-		</tr>
-
-
-
-
-	<% end %>
-
-
-
-
-</div>
+	<%= f.label :email %>
+	<%= f.email_field :email %>
+	
+	<%= f.submit "Update!" %>
+<% end %>

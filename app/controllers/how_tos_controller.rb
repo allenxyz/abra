@@ -21,6 +21,7 @@ class HowTosController < ApplicationController
 		@steps = @howto.steps
 		@comments = @howto.comments
 		@new_comment = Comment.new
+		@user = current_user
 		@likes = @howto.likes.size
 		@liked = false
 
