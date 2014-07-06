@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
-	 has_attached_file :profile_picture, :styles => { :small => "20x20>", :thumb => "50x50>" },
+	 has_attached_file :profile_picture, :styles => { :small => "20x20>", :thumb => "100x100>" },
 	 		  :default_url => "../../assets/missing.jpg", 
 	          :url  => "/assets/user/:id/:style/:basename.:extension",
 	          :path => ":rails_root/public/assets/user/:id/:style/:basename.:extension"

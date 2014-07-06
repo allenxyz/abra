@@ -277,7 +277,7 @@ p {
 .navbar .nav > li > a:hover {
 	border-radius: 0px;
 	color: white;
-	background-color: #6cd2ec;
+	background-color: #52bad5;
 	text-shadow: none;
 }
 .navbar-fixed-top .navbar-inner, 
@@ -940,4 +940,16 @@ h1, h2, h3, h4, h5, h6 {
 .edit_profile {
 	border-style: solid;
 	border-width: 1px;
+}
+
+.pp_thumb{
+	background-color: white;
+	width: 100px;
+	height: 100px;
+}
+
+
+.navbar .nav > li > .logo:hover, 
+.navbar .nav > li > .logo {
+	padding: 0px;
 }

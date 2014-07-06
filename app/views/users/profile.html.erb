@@ -3,7 +3,7 @@
 <h1> Welcome <%= @user.first_name %> </h1>
 
 <div class="details">
-	<%= image_tag @user.profile_picture.url(:thumb), class: "profile_pic" %>
+	<div class="pp_thumb"><%= image_tag @user.profile_picture.url(:thumb), class: "profile_pic" %></div>
 	<div class="info">
 		<h4> Your info: </h4>
 		<ul>

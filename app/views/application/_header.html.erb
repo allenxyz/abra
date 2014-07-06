@@ -1,7 +1,10 @@
 <div class="navbar navbar-fixed-top navbar-inner">
 	<div class="center">
 		<ul class="nav pull-left">
-			<li> <%= image_tag "../../assets/iexperience.png", :url => "http://www.iexperience.co.za" %>
+			<li> <%= link_to image_tag("../../assets/iexperience.png"), 
+										"http://www.iexperience.co.za", 
+									    class: "logo" %>
+
 			<li> <%= link_to "How To iX", root_path, class: "btn btn-medium" %>
 		</ul>
 

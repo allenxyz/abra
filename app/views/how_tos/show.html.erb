@@ -18,8 +18,11 @@
 	<% end %>
 
 	<div class="created_by">
-		<p> 
+		<div class="pp_small">
 			<%= image_tag @user.profile_picture.url(:small), class: "profile_pic" %>
+		</div>
+		<p> 
+			
 			<%= @howto.user.first_name %> <%= @howto.user.last_name %>
 		</p>
 	</div>
