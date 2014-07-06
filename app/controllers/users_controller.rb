@@ -22,8 +22,43 @@ class UsersController < ApplicationController
 		current_user.save
 
 		redirect_to '/profile'
-
 	end
+
+
+	def admin_edit
+		check_admin
+		@all_users = User.all
+	end
+
+	def promote
+		unless check_admin
+			u = User.find(params[:id])
+			u.admin = true
+			u.save
+			redirect_to "/admin_panel"
+		end
+	end
+
+	def demote
+		unless check_admin
+			u = User.find(params[:id])
+			u.admin = false
+			u.save
+			redirect_to "/admin_panel"
+		end
+	end
+
+
+	private
+		def check_admin
+			unless current_user.admin
+				flash[:error] = "YOU DON'T PERMISSION TO GO TO THAT PAGE"
+				redirect_to "/"
+			end
+			return false
+		end
+
+
 
 
 	
