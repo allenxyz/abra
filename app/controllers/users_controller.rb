@@ -50,6 +50,9 @@ class UsersController < ApplicationController
 
 
 	private
+
+
+	
 		def check_admin
 			unless current_user.admin
 				flash[:error] = "YOU DON'T PERMISSION TO GO TO THAT PAGE"

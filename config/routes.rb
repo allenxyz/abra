@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 
 
   get '/profile' => "users#profile"
-  get '/admin_panel' => 'users#admin_edit'
-  post '/admin_panel/' => 'user#admin_modify'
+  get '/admin_panel/users' => 'users#admin_edit_user'
+  get '/admin_panel/howtos' => 'users#admin_edit_howto'
 
   get '/how_to/new' => "how_tos#new"
   put '/how_to/create' => "how_tos#create"

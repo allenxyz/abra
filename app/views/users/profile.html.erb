@@ -70,7 +70,8 @@
 <!-- list users to change status -->
 <div class="admin_only">
 	<% if @user.admin %>
-		<%= link_to "Change users status", '/admin_panel' %>
+		<%= link_to "Change/view users", '/admin_panel/users', class: "btn btn-small"%>
+		<%= link_to "Change/view howto's", 'admin_panel/howto', class: "btn btn-small" %>
 	<% end %>
 </div>
 
