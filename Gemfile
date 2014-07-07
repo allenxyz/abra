@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
-gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem "paperclip", :git => 'git://github.com/thoughtbot/paperclip.git'
 gem 'devise'
 gem 'pry'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
