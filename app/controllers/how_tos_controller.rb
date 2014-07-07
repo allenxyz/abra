@@ -20,8 +20,7 @@ class HowTosController < ApplicationController
 		@howto = HowTo.find(params[:how_to_id])
 		@steps = @howto.steps
 		@comments = @howto.comments
-		@new_comment = Comment.new
-		@user = current_user
+		@user = @howto.user
 		@likes = @howto.likes.size
 		@liked = false
 
@@ -29,6 +28,7 @@ class HowTosController < ApplicationController
 			@liked = true if like.user == current_user
 		end
 
+		@new_comment = Comment.new
 
 		@attempts = @howto.attempts
 
@@ -41,7 +41,7 @@ class HowTosController < ApplicationController
 		h.attempts.delete_all
 		h.likes.delete_all
 		h.destroy
-		redirect_to '/profile'
+		redirect_to :back
 	end
 
 	def random

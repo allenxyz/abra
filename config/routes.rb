@@ -6,14 +6,15 @@ Rails.application.routes.draw do
 
 
   get '/profile' => "users#profile"
-  get '/admin_panel' => 'users#admin_edit'
-  post '/admin_panel/' => 'user#admin_modify'
+  get '/admin_panel/users' => 'users#admin_edit_user'
+  get '/admin_panel/howtos' => 'users#admin_edit_howto'
 
   get '/how_to/new' => "how_tos#new"
   put '/how_to/create' => "how_tos#create"
   delete '/how_to/delete/:how_to_id' => "how_tos#delete"
   get '/show/:how_to_id' => "how_tos#show"
   get '/random' => 'how_tos#random'
+  
 
   put '/like/:how_to_id' => 'likes#like'
   delete '/unlike/:how_to_id' => 'likes#unlike'
@@ -28,9 +29,12 @@ Rails.application.routes.draw do
 
   get '/user/edit' => 'users#edit'
   post '/user/update' => 'users#update'
-
   post '/user/:id/promote' => 'users#promote'
   post '/user/:id/demote' => 'users#demote'
+  delete '/user/:id/delete' => "users#destroy"
+
+  get '/user/:id/show' => 'users#show'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

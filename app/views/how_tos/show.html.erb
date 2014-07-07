@@ -44,7 +44,9 @@
 
 <br><br>
 
-<%= link_to "Go back to your profile", "/profile" %>
+<% if current_user.id == @user.id %>
+	<%= link_to "Go back to your profile", "/profile" %>
+<% end %>
 
 
 <br><br><br><br><br><br>
@@ -75,7 +77,10 @@
 	<% @comments.each do |comment| %>
 		<p class="info">By: <%= comment.user.first_name %> <%= comment.user.last_name %> At: <%= comment.created_at %> <br></p>
 		<p clsas="text"><%= comment.text %></p>
-		<br>
+		<% if comment.user == current_user || current_user.admin %>
+			<%= link_to "Delete this comment" %>
+		<% end %>
+		<br><br>
 	<% end %>
 	
 	<!-- only if your logged in though! -->
