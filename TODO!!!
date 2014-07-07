@@ -1,13 +1,10 @@
 
 
 Things to remember to do:
-- Remove how_to.likes from db
-- admin user
-	- delete anything
-- search 
+- search in admin page
+- search for how to's
 - display top Hows
-- delete your own comments
-
+- Add ratings to admin page
 
 
 - integrate with facebook /sharing

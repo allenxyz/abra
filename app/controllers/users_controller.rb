@@ -11,9 +11,18 @@ class UsersController < ApplicationController
 		@user = current_user
 	end
 
+	def show
+		if current_user.id == params[:id]
+			redirect_to "/profile"
+		else
+			@user = User.find(params[:id])
+			@how_tos = @user.how_tos		
+		end
+	end
+
+
 
 	def update
-		puts params
 		p = params["user"]
 		current_user.email = p['email'] if !(current_user.email == p['email'])
 		current_user.first_name = p['first_name'] if !(current_user.first_name == p['last_name'])
@@ -25,28 +34,47 @@ class UsersController < ApplicationController
 	end
 
 
-	def admin_edit
-		check_admin
-		@all_users = User.all
+	def admin_edit_user
+		if check_admin
+			@all_users = User.all
+		end
 	end
 
+	def admin_edit_howto
+		if check_admin
+			@all_howto = HowTo.all
+		end
+	end
+
+
 	def promote
-		unless check_admin
+		if check_admin
 			u = User.find(params[:id])
 			u.admin = true
 			u.save
-			redirect_to "/admin_panel"
+			redirect_to :back
 		end
 	end
 
 	def demote
-		unless check_admin
+		if check_admin
 			u = User.find(params[:id])
 			u.admin = false
 			u.save
-			redirect_to "/admin_panel"
+			redirect_to :back
 		end
 	end
+
+
+	def destroy
+		if check_admin
+			u = User.find(params[:id])
+			u.comments.delete_all
+			u.likes.delete_all
+			u.how_tos.delete_all
+		end
+	end
+
 
 
 	private
@@ -58,7 +86,7 @@ class UsersController < ApplicationController
 				flash[:error] = "YOU DON'T PERMISSION TO GO TO THAT PAGE"
 				redirect_to "/"
 			end
-			return false
+			return true
 		end
 
 

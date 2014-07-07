@@ -1,52 +1,45 @@
-<%= render 'admin' %>
+<body>
 
-<div class="html_body">
-<table>
-<tr>
-	<th>Name</th>
-	<th>Email</th>
-<th>Account type</th>
-	<th>Created at</th>
-	<th>Last Logged in</th>
-	<th></th>
+	
+	<div class="html_body">
+	<%= render 'admin' %>
+		<table>
+		<tr>
+			<th>ID</th>
+			<th>Title</th>
+			<th>Likes</th>
+			<th>Created By</th>
+			<th>#Comments</th>
+			<th>Ratings</th>
+			<th>Created at</th>
+			<th>Delete</th>
 
-</tr>	
-
-
-<% @all_users.each do |user| %>
-	<tr>
-		<td><%= user.first_name %> <%= user.last_name %></td>
-		<td><%= user.email %></td>
-		<td><% if user.admin %>
-				ADMIN
-			<% else %>
-				USER
-			<% end %>
-		</td>
-		<td><%= user.created_at.to_formatted_s(:rcs822) %>
-				<% days = ((Time.now - user.created_at.to_time)/1.day).round(0) %>
-				(<% if days > 365 %>
-					<%= (days/365).round(0) %> years
-				<% else %>
-					<%= days %> days
-				<% end %> )
-		</td>
-		<td><%= user.last_sign_in_at.to_formatted_s(:rcs822)  %></td>
-		<td>
-			<% if user != current_user %>
-				<% if user.admin %>
-					<%= link_to "DEMOTE", "/user/#{user.id}/demote", method: "post", id: user.id, data: { confirm: "ARE YOU SURE you want to DEMOTE #{user.first_name} #{user.last_name} to a user? " } %>
-				<% else %>
-					<%= link_to "make ADMIN", "/user/#{user.id}/promote", method: "post", id: user.id, data: { confirm: "ARE YOU SURE you want to PROMOTE #{user.first_name} #{user.last_name} to be an admin? " } %>
-				<% end %>
-			<% end %>
-		</td>
-	</tr>
+		</tr>	
 
 
-<% end %>
+		<% @all_howto.each do |howto| %>
+			<tr>
+				<td><%= howto.id %></td>
+				<td><%= link_to "#{howto.title}", "/show/#{howto.id}", :target => "_blank" %></td>
+				<td><%= howto.likes.size %></td>
+				<td><%= howto.user.first_name %> <%= howto.user.last_name %></td>
+				<td><%= howto.comments.size %></td>
+				<td> <!-- Put the ratings here --> </td>
+				<td><%= howto.created_at.to_formatted_s(:rcs822) %>
+						<% days = ((Time.now - howto.created_at.to_time)/1.day).round(0) %>
+						(<% if days > 365 %>
+							<%= (days/365).round(0) %> years
+						<% else %>
+							<%= days %> days
+						<% end %> )
+				</td>
+				<td><%= link_to "Delete", "/how_to/delete/#{howto.id}", data: {confirm: "Are you sure you want to delete how to #{howto.title}? \nThis will delete #{howto.comments.size} comments"} %></td>
+			</tr>
+		<% end %>
 
 
-</table>
+		</table>
 
-</div>
+	</div>
+
+</body>
