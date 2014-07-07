@@ -41,7 +41,7 @@ class HowTosController < ApplicationController
 		h.attempts.delete_all
 		h.likes.delete_all
 		h.destroy
-		redirect_to '/profile'
+		redirect_to :back
 	end
 
 	def random

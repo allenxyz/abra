@@ -72,7 +72,9 @@ class UsersController < ApplicationController
 			u.comments.delete_all
 			u.likes.delete_all
 			u.how_tos.delete_all
+			u.delete
 		end
+		redirect_to :back
 	end
 
 

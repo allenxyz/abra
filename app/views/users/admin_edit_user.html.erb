@@ -40,7 +40,7 @@
 					<td>
 						<!-- Delete -->
 						<% if user != current_user %>
-						<%= link_to "Delete", "user/#{user.id}/delete", method: "delete", 
+						<%= link_to "Delete", "/user/#{user.id}/delete", method: "delete", 
 							data: {confirm: "ARE YOU SURE you want to DELETE #{user.first_name} #{user.last_name}? \n
 											 This will destroy #{user.how_tos.size} how to's \n
 											 This will destroy #{user.comments.size} comments"} %>
@@ -54,12 +54,6 @@
 								<%= link_to "make ADMIN", "/user/#{user.id}/promote", method: "post", id: user.id, data: { confirm: "ARE YOU SURE you want to PROMOTE #{user.first_name} #{user.last_name} to be an admin? " } %>
 							<% end %>
 						<% end %>
-
-
-
-
-
-
 
 					</td>
 				</tr>

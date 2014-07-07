@@ -33,7 +33,7 @@
 							<%= days %> days
 						<% end %> )
 				</td>
-				<td><%= link_to "Delete", "/how_to/delete/#{howto.id}", data: {confirm: "Are you sure you want to delete how to #{howto.title}? \nThis will delete #{howto.comments.size} comments"} %></td>
+				<td><%= link_to "Delete", "/how_to/delete/#{howto.id}", method: :delete, data: {confirm: "Are you sure you want to delete how to #{howto.title}? \nThis will delete #{howto.comments.size} comments"} %></td>
 			</tr>
 		<% end %>
 
