@@ -7,10 +7,8 @@ class AttemptsController < ApplicationController
 
 
 	def create
-		puts "asdfasdfasdf"
 		a = Attempt.create(attempt_params)
-		puts attempt_params
-		puts params
+		puts a.photo
 		redirect_to "/show/#{params[:attempt][:how_to_id]}"
 	end
 

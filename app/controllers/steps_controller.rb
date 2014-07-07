@@ -5,16 +5,12 @@ class StepsController < ApplicationController
 	end
 
 	def create
-
 		@step = Step.create( step_params )
-
 		if params[:commit] == "Add another step!"
 			redirect_to "/steps/new"
 		elsif params[:commit] == "Finished!"
 			redirect_to "/show/#{params[:step][:how_to_id]}"
 		end
-
-
 
 	end
 
