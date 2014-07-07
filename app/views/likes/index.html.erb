@@ -1,0 +1,11 @@
+<div class="html_body">
+
+<% @users.each do |user| %>
+	<%= user.first_name %> <%= user.last_name %>
+	<% if user != @users.last %>
+		, 
+	<% end %>
+<% end %>
+<br>
+<%= link_to "Back", :back %>
+</div>

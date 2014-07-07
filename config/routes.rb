@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  ActiveAdmin.routes(self)
   devise_for :users
   
   root "how_tos#index"
@@ -18,11 +17,13 @@ Rails.application.routes.draw do
 
   put '/like/:how_to_id' => 'likes#like'
   delete '/unlike/:how_to_id' => 'likes#unlike'
+  get '/like/:how_to_id/index' => 'likes#index'
 
   get '/steps/new' => "steps#new"
   put '/steps/create' => "steps#create"
 
   put '/comment/create' => 'comments#create'
+  delete 'comment/delete/:id' => 'comment#delete'
 
   get '/attempt/new' => 'attempts#new'
   put '/attempt/create' => 'attempts#create'

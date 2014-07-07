@@ -16,5 +16,13 @@ class LikesController < ApplicationController
 		redirect_to "/show/#{params[:how_to_id]}"
 	end
 
+	def index
+		@howto = HowTo.find(params[:how_to_id])
+		@users = @howto.likes.map {|like| like.user}
+		puts @users
+		puts @users.class
+	end
+
+
 
 end

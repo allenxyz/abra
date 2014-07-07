@@ -2,9 +2,11 @@
 
 Things to remember to do:
 - search in admin page
+	- paginate
 - search for how to's
 - display top Hows
 - Add ratings to admin page
+- show who liked
 
 
 - integrate with facebook /sharing
@@ -16,8 +18,8 @@ Things to remember to do:
 
 
 - activeadmin gem
-- ratings thing - find the gem
-- rmagic
+- ratings thing - find the gem - using a jquery gem
+- rmagic - for making image 
 - zurb foundation
 
 - CSS
