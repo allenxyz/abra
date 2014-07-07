@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'activeadmin', github: 'gregbell/active_admin'
 gem "paperclip", :git => 'git://github.com/thoughtbot/paperclip.git'
 gem 'devise'
 gem 'pry'

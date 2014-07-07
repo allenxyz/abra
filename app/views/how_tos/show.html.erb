@@ -30,6 +30,8 @@
 
 
 <br><br>
+ 
+<div class="star" data-score="1"></div>
 
 <div class="likes">
 	Likes : <%= @likes %>
@@ -100,3 +102,19 @@
 
 
 </div>
+
+<script type="text/javascript">
+$(function() {
+//Below is a path to img folder.
+      $.fn.raty.defaults.path = '/assets';  
+//Below will activate Raty on div where class is star.	  
+      $('.star').raty({
+		half  : true,
+	    number: 5,
+		score: function() {
+		    return $(this).attr('data-score');
+		  }
+		});
+
+});
+</script>
