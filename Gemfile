@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'font-awesome-sass'
+
 gem "paperclip", :git => 'git://github.com/thoughtbot/paperclip.git'
 gem 'devise'
 gem 'pry'
