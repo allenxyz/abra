@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 	 		  :default_url => "../../assets/missing.jpg", 
 	          :url  => "/assets/user/:id/:style/:basename.:extension",
 	          :path => ":rails_root/public/assets/user/:id/:style/:basename.:extension"
+
 	validates_attachment_content_type :profile_picture, :content_type => /\Aimage\/.*\Z/	    
 	validates_attachment_size :profile_picture, :less_than => 5.megabytes
 
@@ -16,3 +17,4 @@ class User < ActiveRecord::Base
 	has_many :likes
 	has_many :comments
 end
+

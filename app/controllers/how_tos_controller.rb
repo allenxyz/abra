@@ -2,6 +2,12 @@ class HowTosController < ApplicationController
 
 	def index
 		@user = current_user
+		@howtos = HowTo.all
+		@most_likes = HowTo.find_most_likes(@howtos)
+		@most_commented = HowTo.find_most_comments(@howtos)
+		@most_attempts = HowTo.find_most_attempts(@howtos)
+		@latest = [HowTo.last, HowTo.all[-2], HowTo.all[-3]]
+
 	end
 
 	def new
