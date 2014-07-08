@@ -1,23 +1,23 @@
-<div class="navbar navbar-fixed-top navbar-inner">
-	<div class="center">
-		<ul class="nav pull-left">
-			<li> <%= link_to image_tag("../../assets/iexperience.png"), 
-										"http://www.iexperience.co.za", 
-									    class: "logo" %>
-			<li> <%= link_to "How To iX", root_path, class: "btn btn-medium" %>
-		</ul>
-
-		<ul class="nav pull-right">
-			<% if user_signed_in? %>
-				<li> <%= link_to "#{current_user.first_name} #{current_user.last_name}", '/profile', class: "btn btn-medium" %>
-				<li> <%= link_to "Sign out", destroy_user_session_path, :method => 'delete' ,class: "btn btn-medium" %>
-			<% else %>
-				<li> <%= link_to "Sign in", user_session_path, class: "btn btn-medium" %>
-			<% end %>
-		</ul>
-
-		</div>
-	</div>
-</div>
-
-<br><br>
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <h1 class="logo"><a class="brand" href="#">iXperience</a></h1>
+        <div class="nav-collapse collapse">
+          <ul class="nav pull-right">
+            <% if user_signed_in? %>
+            		<li> <%= link_to "How To iX", root_path, class: "btn btn-medium" %>
+					<li> <%= link_to "#{current_user.first_name} #{current_user.last_name}", '/profile', class: "btn btn-medium" %>
+					<li> <%= link_to "Sign out", destroy_user_session_path, :method => 'delete' ,class: "btn btn-medium" %>
+				<% else %>
+					<li> <%= link_to "Sign in", user_session_path, class: "btn btn-medium" %>
+				<% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div><!-- .navbar -->

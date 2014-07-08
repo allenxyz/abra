@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container wrapper">
 	<div class="user-wrapper">
 		<div class="row">		
 			<div class="span2 text-center">
@@ -29,21 +29,21 @@
 								<% end %>
 							</ul>
 					
-							<ul> <strong>Last signed in at:</strong> <%= @user.last_sign_in_at.to_formatted_s(:rcs822) %></ul>
-					
-						</ul>
-					<%= link_to "/user/edit" do %>
-				  		<i class="fa fa-pencil"></i> Edit your info
-					<% end %>
+							<ul> <strong>Last signed in at:</strong> <%= @user.last_sign_in_at.to_formatted_s(:rcs822) %>
+							</ul>
+							<ul>
+								<%= link_to "/user/edit" do %>
+							  		<i class="fa fa-pencil"></i> Edit your info
+								<% end %>
+							</ul>					
+						</ul>					
 					</div>
 				</div>
-	</div>
-	</div>
-	
+		</div>
+	</div>	
 			<hr>
 
-
-
+		<div class=""></div>
 			<div class="hows">
 			<h4>Your HOW's</h4>
 			<% if @how_tos.empty? %>
