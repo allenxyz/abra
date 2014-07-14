@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+group :development do
+  gem "better_errors"
+end
+gem 'binding_of_caller'
 gem 'font-awesome-sass'
 
 gem "paperclip", :git => 'git://github.com/thoughtbot/paperclip.git'

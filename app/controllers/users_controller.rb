@@ -12,7 +12,10 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		if current_user.id == params[:id]
+		if !user_signed_in?
+			@user = User.find(params[:id])
+			@how_tos = @user.how_tos		
+		elsif current_user.id == params[:id].to_i
 			redirect_to "/profile"
 		else
 			@user = User.find(params[:id])

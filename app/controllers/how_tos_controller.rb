@@ -1,13 +1,19 @@
 class HowTosController < ApplicationController
 
 	def index
+		length = 10
 		@user = current_user
 		@howtos = HowTo.all
-		@most_likes = HowTo.find_most_likes(@howtos)
-		@most_commented = HowTo.find_most_comments(@howtos)
-		@most_attempts = HowTo.find_most_attempts(@howtos)
-		@latest = [HowTo.last, HowTo.all[-2], HowTo.all[-3]]
-
+		@most_likes = HowTo.find_most_likes(@howtos, length)
+		@most_commented = HowTo.find_most_comments(@howtos, length)
+		@most_attempts = HowTo.find_most_attempts(@howtos, length)
+		@latest = []
+		ctr = 1
+		1.upto(length) do 
+			break if ctr == length
+			@latest << HowTo.all.reverse[ctr - 1]
+			ctr += 1
+		end
 	end
 
 	def new

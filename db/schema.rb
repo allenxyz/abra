@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140707073112) do
+ActiveRecord::Schema.define(version: 20140714074000) do
 
   create_table "attempts", force: true do |t|
     t.text     "caption"
@@ -40,6 +40,14 @@ ActiveRecord::Schema.define(version: 20140707073112) do
   end
 
   create_table "likes", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "how_to_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ratings", force: true do |t|
+    t.float    "rating"
     t.integer  "user_id"
     t.integer  "how_to_id"
     t.datetime "created_at"

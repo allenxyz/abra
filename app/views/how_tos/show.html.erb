@@ -1,6 +1,6 @@
 <div class="html_body">
 <h2>How To <%= @howto.title %></h2>
-
+<h1>score()</h1>
 <div class="HowTo">
 	<% @steps.each_index do |index| %>
 
@@ -22,24 +22,38 @@
 			<%= image_tag @user.profile_picture.url(:small), class: "profile_pic" %>
 		</div>
 		<p> 
-			
-			<%= @howto.user.first_name %> <%= @howto.user.last_name %>
+			<%= link_to "#{@howto.user.first_name} #{@howto.user.last_name}", "/user/#{@howto.user.id}/show" %>
 		</p>
 	</div>
 </div>
 
 
 <br><br>
- 
-<div class="star" data-score="1"></div>
+
+<!-- ratings -->
+
+<% if @howto.ratings.empty? %>
+	<div class="star" data-score="0"></div>
+<% else %>
+	<% sum = 0 %>
+	<% sum = @howto.ratings.each { |rating| sum += rating.rating } %>
+	<% average = sum / @howto.ratings.size %>
+	<div class="star" data-score=<% average %>></div>
+<% end %>
+
+
+
+
 
 <div class="likes">
 	Likes : <%= @likes %>
 	<br>
-	<% if @liked %>
-		<%= link_to "unlike", "/unlike/#{@howto.id}", :method => "delete" %>
-	<% else %>
-		<%= link_to "like", "/like/#{@howto.id}", :method => "put" %>
+	<% if user_signed_in? %>
+		<% if @liked %>
+			<%= link_to "unlike", "/unlike/#{@howto.id}", :method => "delete" %>
+		<% else %>
+			<%= link_to "like", "/like/#{@howto.id}", :method => "put" %>
+		<% end %>
 	<% end %>
 	<br>
 	<!-- make this pop out eventually -->
@@ -48,8 +62,10 @@
 
 <br><br>
 
-<% if current_user.id == @user.id %>
-	<%= link_to "Go back to your profile", "/profile" %>
+<% if user_signed_in? %>
+	<% if current_user.id == @user.id %>
+		<%= link_to "Go back to your profile", "/profile" %>
+	<% end %>
 <% end %>
 
 
@@ -67,7 +83,10 @@
 	<% end %>
 
 	<br>
-	<%= link_to "Show us your attempt at this!", {:controller => "attempts", :action => "new", :how_to_id => @howto.id } %>
+
+	<% if user_signed_in? %>
+		<%= link_to "Show us your attempt at this!", {:controller => "attempts", :action => "new", :how_to_id => @howto.id } %>
+	<% end %>
 </div>
 
 
@@ -79,10 +98,17 @@
 <h3>Comments</h3>
 <div class="comments">
 	<% @comments.each do |comment| %>
-		<p class="info">By: <%= comment.user.first_name %> <%= comment.user.last_name %> At: <%= comment.created_at %> <br></p>
+		<p class="info">
+			By: 
+			<%= link_to "#{comment.user.first_name} #{comment.user.last_name}", "/user/#{comment.user.id}/show" %>
+			At: <%= comment.created_at %> <br>
+
+			</p>
 		<p clsas="text"><%= comment.text %></p>
-		<% if comment.user == current_user || current_user.admin %>
-			<%= link_to "Delete this comment", "/comment/delete/#{comment.id}", data: { confirm: "Are you sure you want to delete this comment?"} %>
+		<% if user_signed_in? %>
+			<% if comment.user == current_user || current_user.admin %>
+				<%= link_to "Delete this comment", "/comment/delete/#{comment.id}", data: { confirm: "Are you sure you want to delete this comment?"} %>
+			<% end %>
 		<% end %>
 		<br><br>
 	<% end %>
@@ -106,10 +132,10 @@
 </div>
 
 <script type="text/javascript">
-$(function() {
-//Below is a path to img folder.
+	$(function() {
+	//Below is a path to img folder.
       $.fn.raty.defaults.path = '/assets';  
-//Below will activate Raty on div where class is star.	  
+	//Below will activate Raty on div where class is star.	  
       $('.star').raty({
 		half  : true,
 	    number: 5,
@@ -118,5 +144,14 @@ $(function() {
 		  }
 		});
 
+      $('.star').raty({
+		  click: function(score, evt) {
+		  	// <% r = Rating.create(:user_id => current_user.id, :how_to_id => @howto.id) %>;
+		  	// <%= r.rating %> = score;
+		  	// <% r.save %>;
+		  }
+
+	});
 });
+
 </script>

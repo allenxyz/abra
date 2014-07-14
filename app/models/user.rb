@@ -16,5 +16,6 @@ class User < ActiveRecord::Base
 	has_many :how_tos
 	has_many :likes
 	has_many :comments
+	has_many :ratings
 end
 
