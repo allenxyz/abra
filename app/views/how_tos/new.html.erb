@@ -6,7 +6,7 @@
 	<%= form_for(@HowTo, :url => '/how_to/create', :method => "put") do |f| %>
 		
 		How to 
-		<%= f.text_field :title %>
+		<%= f.text_field :title, :required => true, :maxlength => 30, :size => 30, :placeholder => "max. 30 chars" %>
 		<br>
 		<%= f.hidden_field :user_id, value: @user.id %>
 

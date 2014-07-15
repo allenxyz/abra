@@ -1,6 +1,6 @@
 <div class="html_body">
-<h2>How To <%= @howto.title %></h2>
-<h1>score()</h1>
+<h2>How To:</h2>
+<h3> <%= @howto.title %></h3>
 <div class="HowTo">
 	<% @steps.each_index do |index| %>
 
@@ -32,6 +32,8 @@
 
 <!-- ratings -->
 
+<!-- This dosen't work ><.... -->
+<!--
 <% if @howto.ratings.empty? %>
 	<div class="star" data-score="0"></div>
 <% else %>
@@ -40,7 +42,7 @@
 	<% average = sum / @howto.ratings.size %>
 	<div class="star" data-score=<% average %>></div>
 <% end %>
-
+-->
 
 
 
@@ -78,7 +80,8 @@
 	<% else %>
 		<% @attempts.each do |attempt| %>
 			<%= image_tag attempt.photo.url(:medium) %> <br>
-			<%= attempt.caption %>
+			<%= attempt.caption %> <br>
+			<%= link_to "#{attempt.user.first_name} #{attempt.user.last_name}", "/user/#{attempt.user.id}/show" %>
 		<% end %>
 	<% end %>
 
@@ -146,9 +149,6 @@
 
       $('.star').raty({
 		  click: function(score, evt) {
-		  	// <% r = Rating.create(:user_id => current_user.id, :how_to_id => @howto.id) %>;
-		  	// <%= r.rating %> = score;
-		  	// <% r.save %>;
 		  }
 
 	});

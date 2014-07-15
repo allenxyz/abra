@@ -6,6 +6,7 @@ class Attempt < ActiveRecord::Base
 	validates_attachment_presence :photo
 	validates_attachment_size :photo, :less_than => 5.megabytes
 	
-
+	belongs_to :user
+	belongs_to :how_to
 
 end

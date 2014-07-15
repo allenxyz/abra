@@ -1,69 +1,83 @@
 <div class="container wrapper">
 <h1>How To iXperience <span class="smaller">(unofficially)</span></h1>
 
-<%= link_to "Find a random HOW", '/random', class: "btn btn-large random" %> 
-<div class="top_likes">
-	<p>Top Likes:</p>
-	<ul>
-		<% @most_likes.each do |max| %>
-			<% next if max == nil %>
-			<li>
-				<%= link_to image_tag( max.steps.last.photo.url(:small)), "/show/#{max.id}"  %>
-				<%= link_to "#{max.title}", "/show/#{max.id}" %>
-			</li>
-			<br>
-		<% end %>
-	</ul>
+<div class="tops">
+	<div class="top_liked">
+		<h4>Top Likes:</h4>
+		<ol>
+			<% @most_likes.each do |max| %>
+				<% next if max == nil %>
+				<li>
+					<div class="top_item">
+						<div class="img"><%= link_to image_tag( max.steps.last.photo.url(:small)), "/show/#{max.id}"  %></div>
+						<div class="text"><%= link_to "How to: \n#{max.title}", "/show/#{max.id}" %></div>
+					</div>
+				</li>
+				<br>
+			<% end %>
+		</ol>
+	</div>
+
+
+	<div class="top_commented">
+		<h4>Top comented:</h4>
+		<ol>
+			<% @most_commented.each do |max| %>
+				<% next if max == nil %>
+				<li>
+					<div class="top_item">
+						<div class="img"><%= link_to image_tag( max.steps.last.photo.url(:small)), "/show/#{max.id}"  %></div>
+						<div class="text"><%= link_to "How to: \n#{max.title}", "/show/#{max.id}" %></div>
+					</div>
+				</li>
+				<br>
+			<% end %>
+		</ol>
+	</div>
+
+
+
+
+	<div class="top_attempted">
+		<h4>Top attempted:</h4>
+		<ol>
+			<% @most_attempts.each do |max| %>
+				<% next if max == nil %>
+				<li>
+					<div class="top_item">
+						<div class="img"><%= link_to image_tag( max.steps.last.photo.url(:small)), "/show/#{max.id}"  %></div>
+						<div class="text"><%= link_to "How to: \n#{max.title}", "/show/#{max.id}" %></div>
+					</div>
+				</li>
+				<br>
+			<% end %>
+		</ol>
+	</div>
+
+
+
+
+
+	<div class="latest">
+		<h4>Latest:</h4>
+		<ol>
+			<% @latest.each do |max| %>
+				<% next if max == nil %>
+				<li>
+					<div class="top_item">
+						<div class="img"><%= link_to image_tag( max.steps.last.photo.url(:small)), "/show/#{max.id}"  %></div>
+						<div class="text"><%= link_to "How to: \n#{max.title}", "/show/#{max.id}" %></div>
+					</div>
+				</li>
+				<br>
+			<% end %>
+		</ol>
+	</div>
+
+
+	<div class="random_container">
+		<%= link_to "Find a random HOW", '/random', class: "btn btn-large random" %> 
+	</div>
+
 </div>
 
-
-<div class="top_commented">
-	<p>Top comented:</p>
-	<ul>
-		<% @most_commented.each do |max| %>
-			<% next if max == nil %>
-			<li>
-				<%= link_to image_tag( max.steps.last.photo.url(:small)), "/show/#{max.id}"  %>
-				<%= link_to "#{max.title}", "/show/#{max.id}" %>
-			</li>
-			<br>
-		<% end %>
-	</ul>
-</div>
-
-
-
-
-<div class="top_attempted">
-	<p>Top attempted:</p>
-	<ul>
-		<% @most_attempts.each do |max| %>
-			<% next if max == nil %>
-			<li>
-				<%= link_to image_tag( max.steps.last.photo.url(:small)), "/show/#{max.id}"  %>
-				<%= link_to "#{max.title}", "/show/#{max.id}" %>
-			</li>
-			<br>
-		<% end %>
-	</ul>
-</div>
-
-
-
-
-
-<div class="latest">
-	<p>Latest:</p>
-	<ul>
-		<% @latest.each do |max| %>
-			<% next if max == nil %>
-			<li>
-				<%= link_to image_tag( max.steps.last.photo.url(:small)), "/show/#{max.id}"  %>
-				<%= link_to "#{max.title}", "/show/#{max.id}" %>
-			</li>
-			<br>
-		<% end %>
-	</ul>
-</div>
-
-</div>

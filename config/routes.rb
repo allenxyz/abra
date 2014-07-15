@@ -33,8 +33,10 @@ Rails.application.routes.draw do
   post '/user/:id/promote' => 'users#promote'
   post '/user/:id/demote' => 'users#demote'
   delete '/user/:id/delete' => "users#destroy"
-
   get '/user/:id/show' => 'users#show'
+
+  put '/rating/:user_id/:how_to_id/' => 'how_tos#new_rating'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

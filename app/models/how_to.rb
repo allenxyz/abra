@@ -1,4 +1,9 @@
 class HowTo < ActiveRecord::Base
+	validates :title, presence: true
+	validates :title, length: {maximum: 30}
+
+
+
 	belongs_to :user
 	has_many :steps
 	has_many :comments

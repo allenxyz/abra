@@ -889,13 +889,24 @@ h1 {
 }
 
 .random {
-	float:right;
+	width: 50%;
 	padding: 20px;
 	background-color: white;
 	border-color: black;
 	color: black;
-	margin-right: 20px;
 	font-family: "Roboto Slab", sans-serif;
+	margin: 0 auto;
+	text-align: center;
+	border: solid;
+	border-color: black;
+	border-width: 1px;
+	margin-top: 10px;
+}
+
+.random_container {
+	margin: 0 auto;
+	text-align: center;
+
 }
 
 .btn:hover {
@@ -952,4 +963,64 @@ h1, h2, h3, h4, h5, h6 {
 .navbar .nav > li > .logo:hover, 
 .navbar .nav > li > .logo {
 	padding: 0px;
+}
+
+
+
+/*index page*/
+.top_liked {
+	width: 25%;
+	float: left;
+}
+
+
+.top_commented {
+	width: 25%;
+	float: left;
+}
+.top_attempted {
+	width: 25%;
+	float: left;
+}
+.latest {
+	width: 25%;
+	float: left;
+}
+
+.top_liked img,
+.top_commented img,
+.top_attempted img,
+.latest img  {
+	width: 75px;
+	height: 75px;
+}
+
+.top_liked li,
+.top_commented li,
+.top_attempted li,
+.latest li {
+	list-style-type: none;
+	margin: none;
+}
+
+.tops h4 { 
+	font-family: "Roboto Slab", sans-serif;
+}
+
+ol {
+	margin: 0px;
+}
+
+
+.top_item > .img{
+	float: left;
+}
+.top_item > .text {
+	margin-top: auto;
+	margin-bottom: auto;
+}
+.top_item {
+	float:left;
+	width: 100%;
+	padding: 10px 0px;
 }

@@ -1,7 +1,8 @@
 class HowTosController < ApplicationController
 
 	def index
-		length = 10
+		length = 3
+
 		@user = current_user
 		@howtos = HowTo.all
 		@most_likes = HowTo.find_most_likes(@howtos, length)
@@ -10,7 +11,7 @@ class HowTosController < ApplicationController
 		@latest = []
 		ctr = 1
 		1.upto(length) do 
-			break if ctr == length
+			break if (ctr-1) == length
 			@latest << HowTo.all.reverse[ctr - 1]
 			ctr += 1
 		end
@@ -65,6 +66,16 @@ class HowTosController < ApplicationController
 
 		redirect_to "/show/#{index}"
 	end
+
+
+
+	def new_rating
+
+
+		redirect_to :back
+
+	end
+
 
 	private
 
