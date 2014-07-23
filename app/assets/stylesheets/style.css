@@ -974,7 +974,13 @@ h1, h2, h3, h4, h5, h6 {
 
 
 
-/*index page*/
+/* ======================================================================== */
+/* ! Index Page
+/* ======================================================================== */
+.show_title h1,h2,h3,p,a{
+	font-family: "Roboto Slab", sans-serif;
+}
+
 .top_liked {
 	width: 25%;
 	float: left;
@@ -1058,7 +1064,7 @@ ol {
     line-height:1;
 }
 
-.carousel-caption > h1, p, a{
+.carousel-caption > h1, > p{
 	color: white;
 }
 
@@ -1158,11 +1164,6 @@ opacity: 0.5;
 filter: alpha(opacity=50);
 }
 
-
-
-
-
-
 .shadow-layer {
     background-color:none;
     background-color: rgba(0,0,0,0.3);
@@ -1182,4 +1183,59 @@ filter: alpha(opacity=50);
     -moz-transition: background-color 0.5s ease;
     -o-transition: background-color 0.5s ease;
     transition: background-color 0.5s ease;
+}
+
+
+/* ======================================================================== */
+/* ! Show Howto page
+/* ======================================================================== */
+.show_title{
+	text-align: center;
+
+	
+}
+.show_title h2 span{
+	font-family: "Roboto Slab", sans-serif;
+
+}
+
+
+.show_title span{
+	color: #4ABD9B;
+}
+
+/*.HowTo{
+	text-align: center;
+	background-color: grey;
+}*/
+
+.step-wrapper{
+	background-color: rgba(255, 255, 255, 0.8);
+	display: flex;
+	margin:1em 1em 2em;
+ 
+}
+
+.glowing-border {
+    border: 2px solid #dadada;
+    -webkit-border-radius: 1em;
+	-moz-border-radius: 1em;
+	border-radius: 1em;
+}
+
+.glowing-border:hover { 
+    outline: none;
+    border-color: rgba(78, 189, 154, 0.4);
+    box-shadow: 0 0 1em #4ABD9B;
+}
+
+.step{
+	margin-top: 1em;
+	margin-left: 1em;
+	display: flex;
+}
+
+.step i{
+	margin-left: auto;
+	margin-left: auto;
 }

@@ -1,23 +1,33 @@
 <div class="html_body">
-<h2>How To:</h2>
-<h3> <%= @howto.title %></h3>
+
+<div class="show_title mar-t30">
+	<h2>How To <span class="title"><%= @howto.title %></span> <i class="fa fa-question fa-lg"></i></h2>
+</div>
+
+
 <div class="HowTo">
 	<% @steps.each_index do |index| %>
 
-		Step <%= index + 1 %> <br>
+
 		<% step = @steps[index] %>
+		<div class="step-wrapper glowing-border">
+			<div class="step">
+				<p class="image"><%= image_tag step.photo.url(:medium) %></p>
+				<h3 class="step-title">Step <%= index + 1 %> <br></h3>
+				<p class="caption"><%= step.caption %></p>
+			</div>
 
-		<p class="image"><%= image_tag step.photo.url(:medium) %></p>
-		<p class="caption"><%= step.caption %></p>
+		</div>
 
-		<br>
 		<% if index != @steps.size - 1 %>
-			<%= image_tag "../../assets/arrow_down.jpg" %>
+			<i class="fa fa-chevron-circle-down fa-4x"></i>
 		<% end %>
+
 		<br>
 	<% end %>
+</div>
 
-	<div class="created_by">
+<div class="created_by">
 		<div class="pp_small">
 			<%= image_tag @user.profile_picture.url(:small), class: "profile_pic" %>
 		</div>
@@ -25,26 +35,9 @@
 			<%= link_to "#{@howto.user.first_name} #{@howto.user.last_name}", "/user/#{@howto.user.id}/show" %>
 		</p>
 	</div>
-</div>
 
 
 <br><br>
-
-<!-- ratings -->
-
-<!-- This dosen't work ><.... -->
-<!--
-<% if @howto.ratings.empty? %>
-	<div class="star" data-score="0"></div>
-<% else %>
-	<% sum = 0 %>
-	<% sum = @howto.ratings.each { |rating| sum += rating.rating } %>
-	<% average = sum / @howto.ratings.size %>
-	<div class="star" data-score=<% average %>></div>
-<% end %>
--->
-
-
 
 
 <div class="likes">
