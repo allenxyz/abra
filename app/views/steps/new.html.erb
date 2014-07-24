@@ -1,6 +1,5 @@
-
-<br> <br>
-Add a step:
+<div class="container wrapper">
+<h3 class="show_title">ADD A STEP</h3>
 <%= form_for @step, :url => '/steps/create', :method => 'put', :html => { :multipart => true } do |f| %>
 
 	Attach a photo: 
@@ -10,7 +9,8 @@ Add a step:
 
 	<%= f.hidden_field :how_to_id, value: @how_to.id %>
 
-	<%= f.submit "Add another step!" %>
-	<%= f.submit "Finished!" %>
+	<%= f.submit "Add another step!", :class => "btn btn-success btn-large" %>
+	<%= f.submit "Finished!", :class => "btn btn-success btn-large" %>
 
 <% end %>
+</div>

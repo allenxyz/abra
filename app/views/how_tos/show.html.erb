@@ -6,6 +6,7 @@
 
 
 <div class="HowTo">
+
 	<% @steps.each_index do |index| %>
 
 
@@ -13,21 +14,21 @@
 		<div class="step-wrapper glowing-border">
 			<div class="step">
 				<p class="image"><%= image_tag step.photo.url(:medium) %></p>
-				<h3 class="step-title">Step <%= index + 1 %> <br></h3>
+				<h3 class="step-title">Step <%= index + 1 %></h3>
 				<p class="caption"><%= step.caption %></p>
 			</div>
 
 		</div>
 
 		<% if index != @steps.size - 1 %>
-			<i class="fa fa-chevron-circle-down fa-4x"></i>
+			<i class="fa fa-chevron-circle-down fa-3x"></i>
 		<% end %>
 
 		<br>
 	<% end %>
 </div>
 
-<div class="created_by">
+<div class="created_by span4">
 		<div class="pp_small">
 			<%= image_tag @user.profile_picture.url(:small), class: "profile_pic" %>
 		</div>
@@ -35,9 +36,6 @@
 			<%= link_to "#{@howto.user.first_name} #{@howto.user.last_name}", "/user/#{@howto.user.id}/show" %>
 		</p>
 	</div>
-
-
-<br><br>
 
 
 <div class="likes">
@@ -55,8 +53,6 @@
 	<%= link_to "show who liked this", "/like/#{@howto.id}/index" %>
 </div>
 
-<br><br>
-
 <% if user_signed_in? %>
 	<% if current_user.id == @user.id %>
 		<%= link_to "Go back to your profile", "/profile" %>
@@ -66,6 +62,7 @@
 
 <br><br><br><br><br><br>
 <!-- load attemps -->
+<div class="wrapper">
 <h4> Attempts at this!</h4>
 <div class="attempts">
 	<% if @attempts.empty? %>
@@ -84,13 +81,14 @@
 		<%= link_to "Show us your attempt at this!", {:controller => "attempts", :action => "new", :how_to_id => @howto.id } %>
 	<% end %>
 </div>
+</div>
 
 
 
 
 <br><br><br><br><br><br>
 <!-- Load comments -->
-
+<div class="wrapper">
 <h3>Comments</h3>
 <div class="comments">
 	<% @comments.each do |comment| %>
@@ -122,6 +120,7 @@
 	<% else %>
 		<%= link_to "Sign in to comment!", user_session_path %>
 	<% end %>
+</div>
 </div>
 
 

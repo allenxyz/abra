@@ -1,7 +1,8 @@
 <div class="container wrapper">
 
-<div>
-	<p>What do you wanna HOW?</p>
+	<div class="new_howto">
+
+	<p class="show_title">What do you wanna HOW?</p>
 
 	<%= form_for(@HowTo, :url => '/how_to/create', :method => "put") do |f| %>
 		
@@ -12,9 +13,10 @@
 
 		
 		<br>
-		<%= f.submit "Start HOWing!" %>
+		<%= f.submit "Start HOWing!", :class => "btn btn-success btn-large" %>
 	<% end %>
 
 </div>
+
 
 </div>
