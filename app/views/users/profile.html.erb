@@ -48,7 +48,7 @@
 			<h4>Your HOW's</h4>
 			<% if @how_tos.empty? %>
 				<p>You have no HOW's :( </p> 
-				<%= link_to "Make one!", 'how_to/new' %> <br>
+				<%= link_to "Make one!", 'how_to/new',:class => "btn btn-success btn-medium " %> <br>
 
 			<% else %>
 				<ul>
@@ -58,13 +58,9 @@
 					<% end %>
 				</ul>
 			<% end %>
-			<%= link_to "Make a HOWTO!", 'how_to/new' %> <br>
+			<%= link_to "Make a HOWTO!", 'how_to/new', :class => "btn btn-success btn-medium " %> <br>
 			</div>
-
-
-
-
-			<br> <br>
+			<br>
 			<%= link_to "Go Back", root_path %>
 
 
@@ -75,8 +71,8 @@
 			<!-- list users to change status -->
 			<div class="admin_only">
 				<% if @user.admin %>
-					<%= link_to "Change/view users", '/admin_panel/users', class: "btn btn-small"%>
-					<%= link_to "Change/view howto's", 'admin_panel/howtos', class: "btn btn-small" %>
+					<%= link_to "Change/view users", '/admin_panel/users', class: "btn btn-small btn-success"%>
+					<%= link_to "Change/view howto's", 'admin_panel/howtos', class: "btn btn-small btn-success" %>
 				<% end %>
 			</div>
 </div>
