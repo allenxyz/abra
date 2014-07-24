@@ -10,6 +10,7 @@
 	<%= f.text_field :caption %> <br>
 	
 	<%= f.hidden_field :how_to_id, value: params[:how_to_id] %>
+	<%= f.hidden_field :user_id, value: current_user.id %>
 	<%= f.submit "POST!" %>
 
 <% end %>

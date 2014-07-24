@@ -1150,6 +1150,10 @@ a, link{
 	z-index: 15;
 }
 
+a{
+	color: #4ABD9B;
+}
+
 
 .carousel-control {
 position: absolute;
@@ -1259,9 +1263,61 @@ filter: alpha(opacity=50);
 	margin-left: auto;
 }
 
-.created_by{
-
+.attempt-wrapper{
+	border: 2px solid #dadada;
+    -webkit-border-radius: 1em;
+	-moz-border-radius: 1em;
+	border-radius: 1em;
+	margin-top: 1em;
+	margin-left: 1em;
 }
+
+.attempt-wrapper:hover{
+	outline: none;
+    border-color: rgba(78, 189, 154, 0.4);
+    box-shadow: 0 0 1em #4ABD9B;
+}
+
+.attempts{
+	position: relative;
+	left: 5em;
+}
+
+.comment-wrapper{
+	border: 2px solid #dadada;
+    -webkit-border-radius: 1em;
+	-moz-border-radius: 1em;
+	border-radius: 1em;
+	margin-top: 1em;
+	margin-left: 1em;
+	margin-bottom: 1em;
+}
+
+.comment-wrapper:hover{
+	outline: none;
+    border-color: rgba(78, 189, 154, 0.4);
+    box-shadow: 0 0 1em #4ABD9B;
+}
+
+.comments{
+	position: relative;
+	left: 5em;
+}
+
+textarea#comment_text{
+	width: 800px;
+	height: 120px;
+	border: 3px solid #cccccc;
+	padding: 5px;
+	font-family: Tahoma, sans-serif;
+	background-position: bottom right;
+	background-repeat: no-repeat;
+}
+
+
+
+
+
 
 /* ======================================================================== */
 /* ! New Howto page
@@ -1289,5 +1345,9 @@ form{
 form input[type=submit]{
 	font-family: "Roboto Slab", sans-serif;
 	background-color: #4ABD9B;
+}
+
+form#new_comment.new_comment{
+	margin-left: 0;
 }
 

@@ -28,6 +28,8 @@
 	<% end %>
 </div>
 
+<div class="wrapper">
+
 <div class="created_by span4">
 		<div class="pp_small">
 			<%= image_tag @user.profile_picture.url(:small), class: "profile_pic" %>
@@ -59,14 +61,15 @@
 	<% end %>
 <% end %>
 
+</div>
 
-<br><br><br><br><br><br>
+
 <!-- load attemps -->
-<div class="wrapper">
-<h4> Attempts at this!</h4>
+<div class="wrapper attempt-wrapper">
 <div class="attempts">
+	<h3> Attempts at this!</h3>
 	<% if @attempts.empty? %>
-		Noone has attempted this yet! Be the first one! 
+		<p>None has attempted this yet! Be the first one! </p>
 	<% else %>
 		<% @attempts.each do |attempt| %>
 			<%= image_tag attempt.photo.url(:medium) %> <br>
@@ -78,19 +81,15 @@
 	<br>
 
 	<% if user_signed_in? %>
-		<%= link_to "Show us your attempt at this!", {:controller => "attempts", :action => "new", :how_to_id => @howto.id } %>
+		<%= link_to "Show us your attempt at this!", {:controller => "attempts", :action => "new", :how_to_id => @howto.id }, :class => "btn btn-info btn-large" %>
 	<% end %>
 </div>
 </div>
 
-
-
-
-<br><br><br><br><br><br>
 <!-- Load comments -->
-<div class="wrapper">
-<h3>Comments</h3>
+<div class="wrapper comment-wrapper">
 <div class="comments">
+<h3>Comments</h3>
 	<% @comments.each do |comment| %>
 		<p class="info">
 			By: 
@@ -114,7 +113,6 @@
 			<%= f.text_area :text %>
 			<%= f.hidden_field :user_id, value: current_user.id, :input_html => {:maxlength => 500}  %>
 			<%= f.hidden_field :how_to_id, value: @howto.id %>
-			<br>
 			<%= f.submit "Comment!" %>
 		<% end %>
 	<% else %>

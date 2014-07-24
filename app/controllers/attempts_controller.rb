@@ -16,7 +16,7 @@ class AttemptsController < ApplicationController
 	private
 
 		def attempt_params
-			params.require(:attempt).permit(:photo, :caption, :how_to_id)
+			params.require(:attempt).permit(:photo, :caption, :how_to_id, :user_id)
 		end
 
 
